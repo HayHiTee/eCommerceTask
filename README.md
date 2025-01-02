@@ -23,10 +23,10 @@ local machine for development and testing purposes.
 
 
 ## Endpoints
-1. For category => `/categories` and allowed methods are `GET` and `POST`
-2. For products => `/products` and allowed methods are `GET` and `POST` with option to filter by category in the query params e.g `/products?category=<category_name>`
-3. For product detail => `/products/<pk>` and allowed methods are `GET`, `PUT`, `PATCH` and `DELETE`
-4. For discount => `/discounts` and allowed methods are `GET` and `POST`. Also, `discount_unit` field only takes either `percent` or `fixed` value
+1. For category => `/categories`. Allowed methods are `GET` and `POST`
+2. For products => `/products`. Allowed methods are `GET` and `POST` with option to filter by category in the query params e.g `/products?category=<category_name>`
+3. For product detail => `/products/<pk>`. Allowed methods are `GET`, `PUT`, `PATCH` and `DELETE`
+4. For discount => `/discounts`. Allowed methods are `GET` and `POST`. Also, `discount_unit` field only takes either `percent` or `fixed` value
 
 
 ## Tests
