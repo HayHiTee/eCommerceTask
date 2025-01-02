@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your
 local machine for development and testing purposes. 
 
 ## Prerequisites
-* Python 3.X
+* Python 3.X (Preferably >= Python 3.10)
 
 
 
