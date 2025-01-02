@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from rest_framework import serializers
 
 from eCommerceApp.models import Category, Product, Discount
@@ -19,14 +21,14 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    category = CategorySerializer()
+    # categories = CategorySerializer()
     class Meta:
         model = Product
         fields = ('id', 'name', 'description', 'price', 'stock_quantity', 'category', 'created_at')
 
 
 class ProductWithDiscountSerializer(serializers.ModelSerializer):
-    category = CategorySerializer()
+    # category = CategorySerializer()
     price_with_discount = serializers.SerializerMethodField()
 
     class Meta:
@@ -37,8 +39,10 @@ class ProductWithDiscountSerializer(serializers.ModelSerializer):
         discount_objs = Discount.objects.filter(product=obj)
         price = obj.price
         discounts = [price - (price*discount_obj.discount_price/100) if discount_obj.discount_unit=='percent' else price-discount_obj.discount_price for discount_obj in discount_objs]
+        if not discounts:
+            return str(round(price, 2))
         max_discount_price = min(discounts)
-        return max_discount_price
+        return str(round(max_discount_price,2))
 
 
 class DiscountSerializer(serializers.ModelSerializer):

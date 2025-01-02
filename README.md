@@ -27,3 +27,10 @@ local machine for development and testing purposes.
 2. For products => `/products` and allowed methods are `GET` and `POST` with option to filter by category in the query params e.g `/products?category=<category_name>`
 3. For product detail => `/products/<pk>` and allowed methods are `GET`, `PUT`, `PATCH` and `DELETE`
 4. For discount => `/discounts` and allowed methods are `GET` and `POST`. Also, `discount_unit` field only takes either `percent` or `fixed` value
+
+
+## Tests
+For all test cases run 
+```bash
+python manage.py test
+```
